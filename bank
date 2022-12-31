@@ -1,0 +1,155 @@
+import java.util.*; 
+public class Lab19{
+   static Scanner in = new Scanner(System.in);
+   static ArrayList<Checkings> checking = new ArrayList<>();
+   static ArrayList<Savings> saving = new ArrayList<>();
+   public static void main(String[] args) {
+   
+      int id=0;
+   
+      boolean done = false;
+      int option;
+      do {
+         System.out.println("\n**********************************\n");
+         System.out.println ( "Select an option:");
+         System.out.println ( "1) Open a checking account" );
+         System.out.println ( "2) Checking deposit" );
+         System.out.println ( "3) Checking withdraw" );
+         System.out.println ( "4) Print checking account info." );
+         System.out.println ( "5) Open a saving account" );
+         System.out.println ( "6) Saving deposit." );
+         System.out.println ( "7) Saving withdraw." );
+         System.out.println ( "8) Print monthly interest" );
+         System.out.println ( "9) Print saving account info.");
+         System.out.println ( "10) Exit");
+         
+         option = in.nextInt();
+         System.out.println ( "\n**********************************\n" );
+      
+         switch (option) {
+            case 1:
+               openChecking();
+               break;
+         
+            case 2:
+               System.out.print ( "Enter account number: ");
+               id= in.nextInt();
+            
+               if(id>=1000&&id<checking.size()+1000) {
+                  System.out.print("Enter deposit amount: ");
+                  double amount = in.nextDouble();
+                  checking.get(id-1000).deposit(amount);
+               }
+               else
+                  System.out.println("Account "+id+" does not exist");
+            
+            
+               break;
+            case 3:
+               System.out.println ( "Enter account number: ");
+               id = in.nextInt();
+               if(id>=1000&&id<checking.size()+1000)
+               {
+                  System.out.print("Enter withdraw amount: ");
+                  double amount = in.nextDouble();
+                  checking.get(id-1000).withdraw(amount);
+               }
+               else
+                  System.out.println("Account "+id+" does not exist");
+            
+               break;
+            case 4:
+            
+               System.out.println ( "Enter account number: ");
+               id = in.nextInt();
+               if(id>=1000&&id<checking.size()+1000)
+                  //printAccount(checking.get(id-1000));
+                  System.out.println(checking.get(id-1000).toString());
+               else
+                  System.out.println("Account "+id+" does not exist");
+            
+            
+               break;
+            case 5:
+               openSaving();
+               break;
+            case 6:
+               System.out.print ( "Enter account number: ");
+               id= in.nextInt();
+            
+               if(id>=1000&&id<saving.size()+1000) {
+                  System.out.print("Enter deposit amount: ");
+                  double amount = in.nextDouble();
+                  saving.get(id-1000).deposit(amount);
+               }
+               else
+                  System.out.println("Account "+id+" does not exist");
+            
+            
+               break;
+            case 7:
+               System.out.println( "Enter account number: ");
+               id = in.nextInt();
+               if(id>=1000&&id<saving.size()+1000)
+               {
+                  System.out.print("Enter withdraw amount: ");
+                  double amount = in.nextDouble();
+                  saving.get(id-1000).withdraw(amount);
+               }
+               else
+                  System.out.println("Account "+id+" does not exist");
+            
+               break;
+            case 8:
+               System.out.println ( "Enter account number: ");
+               id = in.nextInt();
+               if(id>=1000&&id<saving.size()+1000) {
+                  System.out.print("Account " + (id) + " earned ");
+                  System.out.println(String.format("$%1.02f", saving.get(id-1000).getMonthlyInterest())+ " interest.");
+               }
+               else
+                  System.out.println("Account "+id+" does not exist");
+               break;
+            case 9:
+               System.out.println ( "Enter account number: ");
+               id = in.nextInt();
+               if(id>=1000&&id<saving.size()+1000)
+                  //printAccount(saving.get(id-1000));
+                  System.out.println(saving.get(id-1000).toString());
+               else
+                  System.out.println("Account "+id+" does not exist");
+               break;
+            case 10:
+               done = true;
+               break;
+            default:
+               System.out.println ( "Illegal option, try again");
+         }
+      }while(option != 10);
+      
+   
+   }
+   
+   public static void openChecking(){
+      int id = checking.size() + 1000;
+      System.out.print ( "Enter initial balance for account # " + id + ": ");
+      double balance= in.nextDouble();
+      Checkings newAccount = new Checkings(id, balance);
+      checking.add(newAccount);
+   }
+   
+   public static void openSaving(){
+    int id = saving.size() + 1000;
+      System.out.print ( "Enter initial balance for account # " + id + ": ");
+      double balance= in.nextDouble();
+      System.out.print ( "Enter annual interest rate for account # " + id + ": ");
+      double rate= in.nextDouble();
+ 
+      Savings newAccount = new Savings( id, balance, rate);
+      saving.add(newAccount);
+
+   }
+
+   
+}
+
