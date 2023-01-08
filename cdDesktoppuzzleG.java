@@ -4,7 +4,7 @@ import java.awt.event.*;
 public class cdDesktoppuzzleG extends JFrame implements ActionListener{
     JButton b1,b2,b3,b4,b5,b6,b7,b8,b9,next;
     cdDesktoppuzzleG(){
-        super("Germy's Puzzle - †∆");
+        super("Germy's Puzzle -∆†∆");
         b1=new JButton("1");
         b2=new JButton(" ");
         b3=new JButton("3");
@@ -14,7 +14,7 @@ public class cdDesktoppuzzleG extends JFrame implements ActionListener{
         b7=new JButton("7");
         b8=new JButton("8");
         b9=new JButton("2");
-        next=new JButton("next puzzle");
+        next=new JButton("next Puzzle");
 
         b1.setBounds(10,30,50,40);
         b2.setBounds(70,30,50,40);
@@ -45,7 +45,7 @@ public class cdDesktoppuzzleG extends JFrame implements ActionListener{
         setLayout(null);
         setVisible(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    }//end of constructor
+    }
 
     public void actionPerformed(ActionEvent e){
         if(e.getSource()==next){
