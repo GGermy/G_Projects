@@ -14,7 +14,7 @@ public class cdDesktoppuzzleG extends JFrame implements ActionListener{
         b7=new JButton("7");
         b8=new JButton("8");
         b9=new JButton("2");
-        next=new JButton("next Puzzle");
+        next=new JButton("Next Puzzle");
 
         b1.setBounds(10,30,50,40);
         b2.setBounds(70,30,50,40);
@@ -40,7 +40,7 @@ public class cdDesktoppuzzleG extends JFrame implements ActionListener{
         next.addActionListener(this);
 
         next.setBackground(Color.black);
-        next.setForeground(Color.green);
+        next.setForeground(Color.black);
         setSize(250,300);
         setLayout(null);
         setVisible(true);
